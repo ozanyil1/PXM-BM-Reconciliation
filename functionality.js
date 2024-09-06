@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Parse the CSV file and create an array of objects with only required headers
         parseCSVToArray(file, requiredHeaders, function(dataArray) {
-            console.log("Parsed ConnectorRoute Rules Data:", dataArray);
+
 
             dataArray.forEach(item => {
                 if (item.sym.includes('.')) {
@@ -209,7 +209,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Parse the CSV file and create an array of objects with only required headers
         parseCSVToArray(file, requiredHeaders, function(dataArray) {
-            console.log("Parsed PrimeXM Positions Data:", dataArray);
 
             // Assign dataArray to PrimeXMPositionsArray
             window.PrimeXMPositionsArray = dataArray;
@@ -328,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Parse the CSV file and create an array of objects with only required headers, using semicolon as delimiter
         parseCSVToArray(file, requiredHeaders, function(dataArray) {
-            console.log("Parsed MT5 Trading Accounts Data:", dataArray);
 
             // Assign dataArray to MT5TradingAccountsArray
             window.MT5TradingAccountsArray = dataArray;
