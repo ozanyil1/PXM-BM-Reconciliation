@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PXM-BM MT5 reconciliation</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="firstdiv">
+    <h1>PXM-BM MT5 reconciliation</h1>
+
+    <p>This is a reconciliation tool that should be used to reconcile the positions of Bermuda account of record <strong>BERMUDA_PXM</strong> and dealer account <strong>BRPXM_DEALER</strong> against their MT5 positions based on the MT5 logins,symbols and excluded groups. 
+    <br>Step 1: Go to Trading Accounts on MT5, make sure Login and Group columns are available, right click and export and save it to CSV file.
+    <br>Step 2: Go to Positions on MT5, make sure Login, Symbol, Type and Volume columns are available, right click and export, select CSV file, click save <strong>but do not click Yes yet</strong>, just keep it available on your screen.
+    <br>Step 3: Go to PXM Portal Position component, make sure there is no filters on, right click and export. <strong>As soon as you click export on PXM,</strong> click yes on MT5 to save positions.
+    <br>Step 4: Go to PXM Real-time config > ConnectorRoute > right click and export the rules there.
+    <br>Step 5: Input the CSV file exported from ConnectorRoute.
+    <br>Step 6: Input PrimeXM positions exported from the Position component of the account module.
+    <br>Step 7: Input MT5 Positions exported from MT5.
+    <br>Step 8: Input MT5 Accounts exported from MT5</p>
+
+    <!-- First Row: ConnectorRoute Rules (CSV only) -->
+    <div class="container">
+        <label for="fileInput1">ConnectorRoute Rules:</label>
+        <input type="text" id="filePath1" class="input-box" placeholder="No file selected" readonly>
+        <input type="file" id="fileInput1" accept=".csv" style="display: none;">
+        <button id="browseButton1" class="browse-button">Browse</button>
+        <span class="note">The CSV file should include connector, sym, subid1, and subid3 columns</span>
+    </div>
+
+    <!-- Second Row: PrimeXM Positions (CSV only) -->
+    <div class="container">
+        <label for="fileInput2">PrimeXM Positions:</label>
+        <input type="text" id="filePath2" class="input-box" placeholder="No file selected" readonly>
+        <input type="file" id="fileInput2" accept=".csv" style="display: none;">
+        <button id="browseButton2" class="browse-button">Browse</button>
+        <span class="note">The CSV file should include Account, Symbol, Base and Overflow columns</span>
+    </div>
+
+    <!-- Third Row: MT5 Positions (CSV only) -->
+    <div class="container">
+        <label for="fileInput3">MT5 Positions:</label>
+        <input type="text" id="filePath3" class="input-box" placeholder="No file selected" readonly>
+        <input type="file" id="fileInput3" accept=".csv" style="display: none;">
+        <button id="browseButton3" class="browse-button">Browse</button>
+        <span class="note">The CSV file should include Login, Symbol, Type, and Volume columns</span>
+    </div>
+
+    <!-- Fourth Row: MT5 Trading Accounts (CSV only) -->
+    <div class="container">
+        <label for="fileInput4">MT5 Trading Accounts:</label>
+        <input type="text" id="filePath4" class="input-box" placeholder="No file selected" readonly>
+        <input type="file" id="fileInput4" accept=".csv" style="display: none;">
+        <button id="browseButton4" class="browse-button">Browse</button>
+        <span class="note">The CSV file should include Login and Group columns</span>
+    </div>
+
+    <!-- Fifth Row: MT5 Config (TXT only) -->
+    <div class="container">
+        <label for="fileInput5">MT5 Config:</label>
+        <input type="text" id="filePath5" class="input-box" placeholder="No file selected" readonly>
+        <input type="file" id="fileInput5" accept=".txt" style="display: none;">
+        <button id="browseButton5" class="browse-button">Browse</button>
+        <span class="note">The TXT file should include contract sizes for MT5 and exclusion of groups</span>
+    </div>
+
+    <!-- Run Button -->
+    <div class="container">
+        <button id="runButton" class="run-button" disabled>Run</button> <!-- Button is initially disabled -->
+    </div>
+
+    <!-- Placeholder for the generated table -->
+    <div id="table-container"></div> <!-- This is where the table will be inserted -->
+    </div>
+    
+    <div id="secondDiv">
+        <div id="table-container-2"></div> <!-- This is where the table will be inserted -->
+
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="functionality.js"></script>
+    <script src="run.js"></script>
+
+</body>
+</html>
