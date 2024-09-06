@@ -11,7 +11,7 @@
     <div id="firstdiv">
     <h1>PXM-BM MT5 reconciliation</h1>
 
-    <p>This is a reconciliation tool that should be used to reconcile the positions of Bermuda account of record <strong>BERMUDA_PXM</strong> and dealer account <strong>BRPXM_DEALER</strong> against their MT5 positions based on the MT5 logins,symbols and excluded groups. 
+    <p>This is a reconciliation tool that should be used to reconcile the positions of Bermuda account of record <strong>BERMUDA_PXM</strong> and dealer account <strong>BRPXM_DEALER</strong> against their MT5 positions based on the MT5 logins, symbols and excluded groups. 
     <br>Step 1: Go to Trading Accounts on MT5, make sure Login and Group columns are available, right click and export and save it to CSV file.
     <br>Step 2: Go to Positions on MT5, make sure Login, Symbol, Type and Volume columns are available, right click and export, select CSV file, click save <strong>but do not click Yes yet</strong>, just keep it available on your screen.
     <br>Step 3: Go to PXM Portal Position component, make sure there is no filters on, right click and export. <strong>As soon as you click export on PXM,</strong> click yes on MT5 to save positions.
@@ -55,15 +55,6 @@
         <input type="file" id="fileInput4" accept=".csv" style="display: none;">
         <button id="browseButton4" class="browse-button">Browse</button>
         <span class="note">The CSV file should include Login and Group columns</span>
-    </div>
-
-    <!-- Fifth Row: MT5 Config (TXT only) -->
-    <div class="container">
-        <label for="fileInput5">MT5 Config:</label>
-        <input type="text" id="filePath5" class="input-box" placeholder="No file selected" readonly>
-        <input type="file" id="fileInput5" accept=".txt" style="display: none;">
-        <button id="browseButton5" class="browse-button">Browse</button>
-        <span class="note">The TXT file should include contract sizes for MT5 and exclusion of groups</span>
     </div>
 
     <!-- Run Button -->
