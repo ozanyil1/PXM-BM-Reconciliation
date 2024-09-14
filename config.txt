@@ -6,8 +6,8 @@
     "demo*",
     "preliminary"
   ],
-  "FullBook": "BERMUDA_PXM",
-  "BBook": "BRPXM_DEALER",
+  "FullBook": "DAMAN_MARKETS",
+  "BBook": "DAMAN_DEALER",
   "ActiveConnector": "Bermuda_Xcore",
   "Symbols": [
     { "Symbol": "AUDUSD", "ContractSize": 100000 },
