@@ -8,7 +8,7 @@
   ],
   "FullBook": "DAMAN_MARKETS",
   "BBook": "DAMAN_DEALER",
-  "ActiveConnector": "Bermuda_Xcore",
+  "ActiveConnector": "DAMAN_MARKETS-1_Xcore",
   "Symbols": [
     { "Symbol": "AUDUSD", "ContractSize": 100000 },
     { "Symbol": "EURUSD", "ContractSize": 100000 },
