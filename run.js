@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const account = window.MT5TradingAccountsArray.find(acc => acc.Login === position.Login);
             if (account) {
                 position.Group = account.Group;
+                position.Name = account.Name;
             }
         });
     }
@@ -45,6 +46,18 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(excludedPatterns)
         window.aggregatedArray = window.aggregatedArray.filter(position => {
             return !matchPattern(position.Group, excludedPatterns);
+        });
+    }
+
+    function filterTestLogins() {
+        if (!window.aggregatedArray.length) {
+            return;
+        }
+    
+        const excludedLogins = ['TEST']; // These can be made case-insensitive later
+    
+        window.aggregatedArray = window.aggregatedArray.filter(position => {
+            return !excludedLogins.some(excluded => position.Name.toLowerCase().includes(excluded.toLowerCase()));
         });
     }
 
@@ -337,6 +350,7 @@ document.addEventListener('DOMContentLoaded', function () {
         filterConnectorRouteArray();
         enrichMT5Positions();
         filterExcludedGroups();
+        filterTestLogins();
         routeAggregatedArray();
         adjustAggregatedVolumes();
         netFullBook();
