@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('filePath4').value = filePath4;
 
         // Required headers for MT5 Trading Accounts
-        const requiredHeaders = ['Login', 'Group'];
+        const requiredHeaders = ['Login', 'Name', 'Group'];
 
         // Parse the CSV file and create an array of objects with only required headers, using semicolon as delimiter
         parseCSVToArray(file, requiredHeaders, function(dataArray) {
