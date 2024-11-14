@@ -308,9 +308,11 @@ document.addEventListener('DOMContentLoaded', function () {
         
             // Create table body
             const tbody = document.createElement('tbody');
-            console.log(BBookCrossCheckArray)
             BBookCrossCheckArray.forEach(item => {
                 const tr = document.createElement('tr');
+                console.log(item.MT5Volume)
+                console.log((item.PXMVolume * -1))
+                console.log((item.PXMVolume+item.PXMOverflow)*-1))
                 if(item.MT5Volume!=(item.PXMVolume * -1)){
                     if(item.MT5Volume===(item.PXMVolume+item.PXMOverflow)*-1){
                         tr.style.backgroundColor = "orange";
