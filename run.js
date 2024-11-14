@@ -308,14 +308,13 @@ document.addEventListener('DOMContentLoaded', function () {
         
             // Create table body
             const tbody = document.createElement('tbody');
+            console.log(BBookCrossCheckArray+"is b book cross check array")
             BBookCrossCheckArray.forEach(item => {
                 const tr = document.createElement('tr');
-                if(item.MT5Volume.toFixed(2)!=(item.PXMVolume * -1).toFixed(2)){
-                    if(item.MT5Volume.toFixed(2)===((item.PXMVolume+item.PXMOverflow)*-1).toFixed(2)){
+                if(item.MT5Volume!=(item.PXMVolume * -1)){
+                    if(item.MT5Volume===(item.PXMVolume+item.PXMOverflow)*-1){
                         tr.style.backgroundColor = "orange";
                     } else {
-                        console.log(item.MT5Volume.toFixed(2))
-                        console.log(((item.PXMVolume+item.PXMOverflow)*-1).toFixed(2))
                         tr.style.backgroundColor = "red"}}
 
                 const td = document.createElement('td');
