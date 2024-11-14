@@ -314,6 +314,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     if(item.MT5Volume===(item.PXMVolume+item.PXMOverflow)*-1){
                         tr.style.backgroundColor = "orange";
                     } else {
+                        console.log(item.MT5Volume)
+                        console.log((item.PXMVolume+item.PXMOverflow)*-1)
                         tr.style.backgroundColor = "red"}}
 
                 const td = document.createElement('td');
