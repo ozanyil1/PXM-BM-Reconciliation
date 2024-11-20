@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(`Match found for subid3: ${position.subid3}`);
                         position.BBOOK = "NO";
                         if(!position.RiskAccount){position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target];}
+                        if(!position.BbookRatio){position.BbookRatio = window.MT5ConfigObject.BbookRatio[route.target];}
                     }
                 });
             })
@@ -90,6 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 if (!position.RiskAccount) {
                     position.RiskAccount = "DAMAN_DEALER";
+                }
+                if (!position.BbookRatio) {
+                    position.BbookRatio = 1;
                 }
             });
         }
