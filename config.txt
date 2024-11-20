@@ -12,6 +12,7 @@
     "DAMAN_MARKETS-1_Xcore_A":"STP",
     "DAMAN_MARKETS-1_Xcore_B":"DAMAN_DEALER",
     "DAMAN_MARKETS-1_Xcore_G":"DAMAN_G_DEALER"},
+  "RiskAccounts2":["DAMAN_DEALER","DAMAN_G_DEALER"],
   "BbookRatio":{
     "DAMAN_MARKETS-1_Xcore_A":0,
     "DAMAN_MARKETS-1_Xcore_B":1,
