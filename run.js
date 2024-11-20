@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
             })
 
             window.aggregatedArray.forEach(position => {
-                console.log(position)
                 if (!position.BBOOK) {
                     position.BBOOK = "YES";
                 }
