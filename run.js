@@ -118,8 +118,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     
-        console.log("Adjusted Aggregated Array Data:", window.aggregatedArray);
+        
     }
+
+    function adjustAggregatedBbookVolume() {
+        window.aggregatedArray.forEach(element => {
+            if (element.Volume != null && element.BbookRatio != null) {
+                element.BbookVolume = element.Volume * element.BbookRatio;
+            } else {
+                console.warn(`Element is missing Volume or BbookRatio:`, element);
+                element.BbookVolume = null; // Set to null if calculation cannot be performed
+            }
+        });
+    }
+
 
     function netFullBook() {
         window.aggregatedArray.forEach(position => {
@@ -365,6 +377,8 @@ document.addEventListener('DOMContentLoaded', function () {
         filterTestLogins();
         routeAggregatedArray();
         adjustAggregatedVolumes();
+        adjustAggregatedBbookVolume()
+        console.log("Adjusted Aggregated Array Data:", window.aggregatedArray);
         netFullBook();
         netBBook();
         hideFirstDiv()
