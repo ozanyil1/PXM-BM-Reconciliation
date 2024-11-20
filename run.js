@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(`Match found for symbol: ${position.Symbol}`);
                         position.BBOOK = "NO";
                         position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target];
-                        console.log(position.RiskAccount)
                     };
                 });
             });
@@ -79,12 +78,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (matchedRouteBySubid3) {
                     console.log(`Match found for subid3: ${position.subid3}`);
                     position.BBOOK = "NO";
+                    if(!position.RiskAccount){position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target]}
                 }
             });
 
             window.aggregatedArray.forEach(position => {
                 if (!position.BBOOK) {
                     position.BBOOK = "YES";
+                }
+                if (!position.RiskAccount) {
+                    position.RiskAccount = "DAMAN_DEALER";
                 }
             });
         }
