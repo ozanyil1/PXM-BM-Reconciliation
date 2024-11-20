@@ -480,7 +480,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             tr.style.backgroundColor = "red"}}
     
                     const td = document.createElement('td');
-                    td.textContent = MT5ConfigObject.BBook || ''; // Add cell value or empty if not available
+                    td.textContent = window.MT5ConfigObject.RiskAccounts2[0] || ''; // Add cell value or empty if not available
                     tr.appendChild(td);
     
                     ['Symbol', 'MT5Volume', 'PXMVolume','PXMOverflow'].forEach(field => {
