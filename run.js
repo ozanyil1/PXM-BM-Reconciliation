@@ -93,9 +93,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!position.RiskAccount) {
                     position.RiskAccount = "DAMAN_DEALER";
                 }
-                //if (!position.BbookRatio) {
-                    //position.BbookRatio = 1;
-                //}
+                if (position.BbookRatio === undefined || position.BbookRatio === null) {
+                    position.BbookRatio = 1; // Only executes if BbookRatio is truly missing
+                }
             });
         }
     }
