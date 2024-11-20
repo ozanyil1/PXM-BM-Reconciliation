@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         position.BBOOK = "NO";
                         //position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target]
                         console.log(route.target)
+                        console.log(window.MT5ConfigObject.RiskAccounts[route.target])
                     };
                 });
             });
