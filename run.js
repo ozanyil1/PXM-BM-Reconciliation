@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (matchedRouteBySymbol) {
                     console.log(`Match found for symbol: ${position.Symbol}`);
                     position.BBOOK = "NO";
+                    position.RiskAccount = window.MT5ConfigObject.RiskAccounts.[route.target]
                 }
             });
     
