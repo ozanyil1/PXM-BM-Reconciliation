@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.aggregatedArray = [];
     window.netFullBookArray = [];
     window.netBBookArray = [];
+    window.netBBookArray2 = [];
     window.fullBookCrossCheckArray = [];
     window.BBookCrossCheckArray = [];
 
