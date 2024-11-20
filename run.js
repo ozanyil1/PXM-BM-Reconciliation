@@ -591,7 +591,6 @@ document.addEventListener('DOMContentLoaded', function () {
         BBookCrossCheck2();
         console.log("Adjusted Aggregated Array Data:",window.BBookCrossCheckArray2)
         createFullBookCrossCheckTable();
-        createBBookCrossCheckTable();
         createBBookCrossCheckTable_1();
         createBBookCrossCheckTable_2();
     });
