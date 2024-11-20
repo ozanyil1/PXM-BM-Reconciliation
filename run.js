@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.ConnectorRouteArray.forEach(route => {
                     if(route.sym === position.Symbol){
                         console.log(`Match found for symbol: ${position.Symbol}`);
-                        position.BBOOK = "NO";
+                        position.BBookRatio = window.MT5ConfigObject.BBookRatio[route.target];
                         position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target];
                     };
                 });
