@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const excludedPatterns = window.MT5ConfigObject.ExcludedGroups;
-        console.log(excludedPatterns)
         window.aggregatedArray = window.aggregatedArray.filter(position => {
             return !matchPattern(position.Group, excludedPatterns);
         });
@@ -66,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
             window.aggregatedArray.forEach(position => {
                 window.ConnectorRouteArray.forEach(route => {
                     if(route.sym === position.Symbol){
-                        console.log(`Match found for symbol: ${position.Symbol}`);
                         position.BBOOK = "NO"
                         position.BbookRatio = window.MT5ConfigObject.BbookRatio[route.target];
                         position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target];
@@ -77,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
             window.aggregatedArray.forEach(position => {
                 window.ConnectorRouteArray.forEach(route => {
                     if(route.subid3 === position.Login){
-                        console.log(`Match found for subid3: ${position.subid3}`);
                         position.BBOOK = "NO";
                         if(!position.RiskAccount){position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target];}
                         if(!position.BbookRatio){position.BbookRatio = window.MT5ConfigObject.BbookRatio[route.target];}
@@ -177,6 +174,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 item.NetVolume = Math.round(item.NetVolume * 100) / 100;
             });
         }
+    }
+
+    function netBbook2(){
+        window.aggregatedArray.forEach(position =>{
+            let entry = window.netBBookArray2.find(item => item.Symbol === position.Symbol&&item.RiskAccount === position.RiskAccount);
+
+            // If no entry is found, create a new one
+            if (!entry) {
+                entry = { Symbol: position.Symbol, NetVolume: 0, RiskAccount:position.RiskAccount };
+                window.netBBookArray2.push(entry);
+        }
+
+        // Add volume to the net volume (volume sign is preserved)
+        entry.NetVolume += position.BbookVolume;
+    })
+        // Round each volume to the second decimal place
+        window.netBBookArray2.forEach(item => {
+            item.NetVolume = Math.round(item.NetVolume * 100) / 100;
+        });
     }
 
     function hideFirstDiv() {
@@ -381,11 +397,12 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("Adjusted Aggregated Array Data:", window.aggregatedArray);
         netFullBook();
         netBBook();
+        netBbook2();
+        console.log("Net Bbook Array 2:",window.netBBookArray2)
         hideFirstDiv()
         FullBookCrossCheck();
         BBookCrossCheck();
         createFullBookCrossCheckTable();
         createBBookCrossCheckTable();
-        console.log(BBookCrossCheckArray)
     });
 });
