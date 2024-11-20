@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function () {
         filterTestLogins();
         routeAggregatedArray();
         adjustAggregatedVolumes();
-        adjustAggregatedBbookVolume()
+        //adjustAggregatedBbookVolume()
         console.log("Adjusted Aggregated Array Data:", window.aggregatedArray);
         netFullBook();
         netBBook();
