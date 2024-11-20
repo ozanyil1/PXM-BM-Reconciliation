@@ -74,13 +74,14 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     
             window.aggregatedArray.forEach(position => {
-                const matchedRouteBySubid3 = window.ConnectorRouteArray.find(route => route.subid3 === position.Login);
-                if (matchedRouteBySubid3) {
-                    console.log(`Match found for subid3: ${position.subid3}`);
-                    position.BBOOK = "NO";
-                    if(!position.RiskAccount){position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target]}
-                }
-            });
+                window.ConnectorRouteArray.forEach(route => {
+                    if(route.subid3 === position.Login){
+                        console.log(`Match found for subid3: ${position.subid3}`);
+                        position.BBOOK = "NO";
+                        if(!position.RiskAccount){position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target];}
+                    }
+                });
+            })
 
             window.aggregatedArray.forEach(position => {
                 if (!position.BBOOK) {
