@@ -8,6 +8,10 @@
   ],
   "FullBook": "DAMAN_MARKETS",
   "BBook": "DAMAN_DEALER",
+  "RiskAccounts":{
+    "DAMAN_MARKETS-1_Xcore_A":"STP",
+    "DAMAN_MARKETS-1_Xcore_B":"DAMAN_DEALER",
+    "DAMAN_MARKETS-1_Xcore_G":"DAMAN_G_DEALER"},
   "ActiveConnector": "DAMAN_MARKETS-1_Xcore",
   "Symbols": [
     { "Symbol": "AUDUSD", "ContractSize": 100000 },
