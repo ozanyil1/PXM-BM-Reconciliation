@@ -444,6 +444,70 @@ document.addEventListener('DOMContentLoaded', function () {
             
         }
     }
+
+
+        function createBBookCrossCheckTable_1() {
+        if (window.ConnectorRouteArray.length > 0) {
+            let tableContainer = document.getElementById('table-container-2');
+        
+            // Create table element
+            const table = document.createElement('table');
+            table.setAttribute('border', '1');
+        
+            // Create table header
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            const th = document.createElement('th');
+            th.textContent = "BOOK"
+            headerRow.appendChild(th);
+            ['Symbol', 'MT5Volume', 'PXMVolume', 'PXMOverflow'].forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header; // Use header text
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+        
+            // Create table body
+            const tbody = document.createElement('tbody');
+            BBookCrossCheckArray2.forEach(item => {
+                if(item.RiskAccount === window.MT5ConfigObject.RiskAccounts2[0]) {
+                    const tr = document.createElement('tr');
+                    if(item.MT5Volume!=item.PXMVolume * -1){
+                        if(item.MT5Volume===(item.PXMVolume+item.PXMOverflow)*-1){
+                            tr.style.backgroundColor = "orange";
+                        } else {
+                            tr.style.backgroundColor = "red"}}
+    
+                    const td = document.createElement('td');
+                    td.textContent = MT5ConfigObject.BBook || ''; // Add cell value or empty if not available
+                    tr.appendChild(td);
+    
+                    ['Symbol', 'MT5Volume', 'PXMVolume','PXMOverflow'].forEach(field => {
+                        const td = document.createElement('td');
+                        td.textContent = item[field] || ''; // Add cell value or empty if not available
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                }
+            });
+            table.appendChild(tbody);
+        
+            // Append the table to the container
+            
+            // Check if the wrapper exists
+            let wrapper = tableContainer.querySelector('.table-wrapper-2');
+            if (!wrapper) {
+                // Create a wrapper if it doesn't exist
+                wrapper = document.createElement('div');
+                wrapper.className = 'table-wrapper-2';
+                tableContainer.appendChild(wrapper);
+            }
+            // Append the table to the wrapper
+            wrapper.appendChild(table);
+            
+        }
+    }
     
 
     document.getElementById('runButton').addEventListener('click', function() {
@@ -465,5 +529,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("Adjusted Aggregated Array Data:",window.BBookCrossCheckArray2)
         createFullBookCrossCheckTable();
         createBBookCrossCheckTable();
+        createBBookCrossCheckTable_1();
     });
 });
