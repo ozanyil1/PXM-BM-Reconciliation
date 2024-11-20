@@ -64,12 +64,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function routeAggregatedArray() {
         if (window.ConnectorRouteArray.length > 0) {
             window.aggregatedArray.forEach(position => {
-                const matchedRouteBySymbol = window.ConnectorRouteArray.find(route => route.sym === position.Symbol);
-                if (matchedRouteBySymbol) {
+                window.ConnectorRouteArray.forEach(route => if(route.sym === position.Symbol){
                     console.log(`Match found for symbol: ${position.Symbol}`);
                     position.BBOOK = "NO";
                     //position.RiskAccount = window.MT5ConfigObject.RiskAccounts.[route.target]
                     console.log(route.target)
+                    };
                 }
             });
     
