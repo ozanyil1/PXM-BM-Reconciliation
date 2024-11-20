@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.netBBookArray2 = [];
     window.fullBookCrossCheckArray = [];
     window.BBookCrossCheckArray = [];
+    window.BBookCrossCheckArray2 = [];
 
     // Read config.txt as soon as DOM loads
     function loadConfigFile() {
