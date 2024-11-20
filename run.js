@@ -267,6 +267,66 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
+
+
+
+
+
+    function BBookCrossCheck2() {
+        if (window.ConnectorRouteArray.length > 0) {
+            // Iterate over netBBookArray
+            window.netBBookArray2.forEach(item => {
+                // Push symbol and NetVolume to BBookCrossCheckArray
+                window.BBookCrossCheckArray2.push({
+                    Symbol: item.Symbol,
+                    MT5Volume: item.NetVolume,
+                    RiskAccount: item.RiskAccount
+                });
+            });
+        
+            window.PrimeXMPositionsArray.forEach(PXMPosition => {
+
+                    // Find the matching element in BBookCrossCheckArray
+                    const existingEntry = window.BBookCrossCheckArray2.find(entry => entry.Symbol === PXMPosition.Symbol&&entry.RiskAccount === PXMPosition.Account);
+        
+                    // If an entry with the same symbol and same risk account is found, update its PXMVolume
+                    if (existingEntry) {
+                        existingEntry.PXMVolume = PXMPosition.Base;
+                        existingEntry.PXMOverflow = PXMPosition.Overflow;
+                    } else {
+                        // If no entry is found, create a new one
+                        window.BBookCrossCheckArray2.push({
+                            Symbol: PXMPosition.Symbol,
+                            PXMVolume: PXMPosition.Base,
+                            PXMOverflow: PXMPosition.Overflow,
+                            RiskAccount: PXMPosition.Account
+                        });
+                    }
+                
+            });
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
     function createFullBookCrossCheckTable() {
@@ -398,10 +458,11 @@ document.addEventListener('DOMContentLoaded', function () {
         netFullBook();
         netBBook();
         netBbook2();
-        console.log("Net Bbook Array 2:",window.netBBookArray2)
         hideFirstDiv()
         FullBookCrossCheck();
         BBookCrossCheck();
+        BBookCrossCheck2();
+        console.log("Adjusted Aggregated Array Data:",window.BBookCrossCheckArray2)
         createFullBookCrossCheckTable();
         createBBookCrossCheckTable();
     });
