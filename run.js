@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Create table body
             const tbody = document.createElement('tbody');
             BBookCrossCheckArray2.forEach(item => {
-                if(item.RiskAccount === window.MT5ConfigObject.RiskAccounts2[1]) {
+                if(item.RiskAccount != window.MT5ConfigObject.RiskAccounts2[0]&&item.RiskAccount != "STP") {
                     const tr = document.createElement('tr');
                     if(item.MT5Volume!=item.PXMVolume * -1){
                         if(item.MT5Volume===(item.PXMVolume+item.PXMOverflow)*-1){
@@ -546,7 +546,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             tr.style.backgroundColor = "red"}}
     
                     const td = document.createElement('td');
-                    td.textContent = window.MT5ConfigObject.RiskAccounts2[1] || ''; // Add cell value or empty if not available
+                    td.textContent = item.RiskAccount || ''; // Add cell value or empty if not available
                     tr.appendChild(td);
     
                     ['Symbol', 'MT5Volume', 'PXMVolume','PXMOverflow'].forEach(field => {
@@ -612,6 +612,7 @@ document.addEventListener('DOMContentLoaded', function () {
         BBookCrossCheck2();
         console.log("BBookCrossCheckArray2:",window.BBookCrossCheckArray2)
         createFullBookCrossCheckTable();
+        //This is creating the table for DAMAN_DEALER
         createBBookCrossCheckTable_1();
         createBBookCrossCheckTable_2();
     });
