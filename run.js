@@ -588,12 +588,18 @@ document.addEventListener('DOMContentLoaded', function () {
         //In the 3rd part, if the bbook value is not set to anything, which means position couldnt be matched in the connector route, DAMAN_DEALER risk account is assigned.
         routeAggregatedArray();
         console.log("Aggregated Array Data after route aggregated array:", window.aggregatedArray);
+        //This is multiplying lots with contract sizes from config file
         adjustAggregatedVolumes();
+        //This is multiplying that volume with bbookratio and finding bbookvolume
         adjustAggregatedBbookVolume()
-        console.log("Adjusted Aggregated Array Data:", window.aggregatedArray);
+        console.log("Aggregated Array Data after adjustbbookvolume:", window.aggregatedArray);
+        //this is aggregating volumes by symbol and into netfullbookarray
         netFullBook();
+        //this does the same thing for those bbook value is yes and creates netbbookarray
         netBBook();
+        //this populates netbbookarray2 regardless of bbook value of that position YES or NO and aggregates them based on symbol and risk account
         netBbook2();
+        console.log("Netbbookarray2:", window.netBBookArray2);
         hideFirstDiv()
         FullBookCrossCheck();
         BBookCrossCheck();
