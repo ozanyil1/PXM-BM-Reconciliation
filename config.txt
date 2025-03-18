@@ -11,13 +11,15 @@
   "RiskAccounts": {
     "DAMAN_MARKETS-1_Xcore_A": "STP",
     "DAMAN_MARKETS-1_Xcore_B": "DAMAN_DEALER",
-    "DAMAN_MARKETS-1_Xcore_G": "DAMAN_G_DEALER"
+    "DAMAN_MARKETS-1_Xcore_G": "DAMAN_G_DEALER",
+    "DAMAN_MARKETS-1_Xcore_L": "DAMAN_L_DEALER"
   },
-  "RiskAccounts2": ["DAMAN_DEALER", "DAMAN_G_DEALER"],
+  "RiskAccounts2": ["DAMAN_DEALER", "DAMAN_G_DEALER", "DAMAN_L_DEALER"],
   "BbookRatio": {
     "DAMAN_MARKETS-1_Xcore_A": 0,
     "DAMAN_MARKETS-1_Xcore_B": 1,
-    "DAMAN_MARKETS-1_Xcore_G": 1
+    "DAMAN_MARKETS-1_Xcore_G": 1,
+    "DAMAN_MARKETS-1_Xcore_L": 1
   },
   "ActiveConnector": "DAMAN_MARKETS-1_Xcore",
   "Symbols": [
