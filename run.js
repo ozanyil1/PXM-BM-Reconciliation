@@ -574,6 +574,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     document.getElementById('runButton').addEventListener('click', function() {
+        //This filters out DAMAN2 and DAMAN3 connectors from connectorroute export
         filterConnectorRouteArray();
         enrichMT5Positions();
         filterExcludedGroups();
