@@ -294,13 +294,15 @@ document.addEventListener('DOMContentLoaded', function () {
                         existingEntry.PXMVolume = PXMPosition.Base;
                         existingEntry.PXMOverflow = PXMPosition.Overflow;
                     } else {
-                        // If no entry is found, create a new one
-                        window.BBookCrossCheckArray2.push({
-                            Symbol: PXMPosition.Symbol,
-                            PXMVolume: PXMPosition.Base,
-                            PXMOverflow: PXMPosition.Overflow,
-                            RiskAccount: PXMPosition.Account
-                        });
+                        if(MT5ConfigObject.RiskAccounts2.includes(PXMPosition.Account))
+                            {
+                            // If no entry is found, create a new one
+                            window.BBookCrossCheckArray2.push({
+                                Symbol: PXMPosition.Symbol,
+                                PXMVolume: PXMPosition.Base,
+                                PXMOverflow: PXMPosition.Overflow,
+                                RiskAccount: PXMPosition.Account
+                        });}
                     }
                 
             });
@@ -600,9 +602,13 @@ document.addEventListener('DOMContentLoaded', function () {
         //this populates netbbookarray2 regardless of bbook value of that position YES or NO and aggregates them based on symbol and risk account
         netBbook2();
         console.log("Netbbookarray2:", window.netBBookArray2);
+        //This is hiding first elements of the html before run
         hideFirstDiv()
+        //this creates fullBookCrossCheckArray which compares netfullbookarray positions with pxmpositions
         FullBookCrossCheck();
+        //this does the same thing and populates BBookCrossCheckArray from netBBookArray which was for DAMAN_DEALER
         BBookCrossCheck();
+        //this populates BBookCrossCheckArray2 which compares netBBookArray2 positions which was aggregated by symbol and tisk account against pxm positions
         BBookCrossCheck2();
         console.log("BBookCrossCheckArray2:",window.BBookCrossCheckArray2)
         createFullBookCrossCheckTable();
