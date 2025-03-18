@@ -576,10 +576,18 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('runButton').addEventListener('click', function() {
         //This filters out DAMAN2 and DAMAN3 connectors from connectorroute export
         filterConnectorRouteArray();
+        //This adds group and name information to aggregated array
         enrichMT5Positions();
+        console.log("Aggregated Array Data after enrich function:", window.aggregatedArray);
+        //These filter excluded groups and logins with Test in their names
         filterExcludedGroups();
         filterTestLogins();
+        console.log("Aggregated Array Data after filtering excluded groups and tests:", window.aggregatedArray);
+        //This function has 3 parts, first it is comparing position symbol agaist connector route symbols, if it is matching it makes bbook no, and sets the risk account STP and bbook ratio 0 by finding target connector account in config file
+        //In the second part, it does the same thing by comparing login numbers
+        //In the 3rd part, if the bbook value is not set to anything, which means position couldnt be matched in the connector route, DAMAN_DEALER risk account is assigned.
         routeAggregatedArray();
+        console.log("Aggregated Array Data after route aggregated array:", window.aggregatedArray);
         adjustAggregatedVolumes();
         adjustAggregatedBbookVolume()
         console.log("Adjusted Aggregated Array Data:", window.aggregatedArray);
