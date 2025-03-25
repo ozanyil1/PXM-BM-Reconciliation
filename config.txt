@@ -4,7 +4,8 @@
     "Coverage*",
     "managers*",
     "demo*",
-    "preliminary"
+    "preliminary",
+    "*Test*"
   ],
   "FullBook": "DAMAN_MARKETS",
   "BBook": "DAMAN_DEALER",
