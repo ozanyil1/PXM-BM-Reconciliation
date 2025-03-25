@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
     
-        const excludedLogins = ['TEST']; // These can be made case-insensitive later
+        const excludedLogins = ['TEST','test','Test','Coverage','COVERAGE','coverage']; // These can be made case-insensitive later
     
         window.aggregatedArray = window.aggregatedArray.filter(position => {
             return !excludedLogins.some(excluded => position.Name.toLowerCase().includes(excluded.toLowerCase()));
