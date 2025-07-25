@@ -108,6 +108,8 @@
     { "Symbol": "EOSUSD", "ContractSize": 10000 },
     { "Symbol": "XLMUSD", "ContractSize": 1000 },
     { "Symbol": "LTCUSD", "ContractSize": 100 },
-    { "Symbol": "XRPUSD", "ContractSize": 100 }
+    { "Symbol": "XRPUSD", "ContractSize": 100 },
+    { "Symbol": "XPDUSD", "ContractSize": 100 },
+    { "Symbol": "XPTUSD", "ContractSize": 100 }
   ]
 }
