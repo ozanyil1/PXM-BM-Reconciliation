@@ -13,7 +13,8 @@
     "DAMAN_MARKETS-1_Xcore_A": "STP",
     "DAMAN_MARKETS-1_Xcore_B": "DAMAN_DEALER",
     "DAMAN_MARKETS-1_Xcore_G": "DAMAN_G_DEALER",
-    "DAMAN_MARKETS-1_Xcore_L": "DAMAN_L_DEALER"
+    "DAMAN_MARKETS-1_Xcore_L": "DAMAN_L_DEALER",
+    "DAMAN_MARKETS-1_Xcore_MM": "DAMAN_MM_DEALER"
   },
   "RiskAccounts2": ["DAMAN_DEALER", "DAMAN_G_DEALER", "DAMAN_L_DEALER"],
   "BbookRatio": {
@@ -113,3 +114,4 @@
     { "Symbol": "XPTUSD", "ContractSize": 100 }
   ]
 }
+
