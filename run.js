@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fullBookCrossCheckArray.forEach(item => {
             const tr = document.createElement('tr');
             if (MT5ConfigObject?.ExcludedSymbols.includes(item?.Symbol)) {
-              tr.style.backgroundColor = "grey";
+              tr.style.backgroundColor = "lightgrey";
             }
             else if (item.MT5Volume!=item.PXMVolume){tr.style.backgroundColor = "red"}
 
@@ -415,7 +415,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const tbody = document.createElement('tbody');
             BBookCrossCheckArray.forEach(item => {
                 const tr = document.createElement('tr');
-                if(item.MT5Volume!=item.PXMVolume * -1){
+                if (MT5ConfigObject?.ExcludedSymbols.includes(item?.Symbol)) {
+                      tr.style.backgroundColor = "lightgrey";
+                    }
+                else if(item.MT5Volume!=item.PXMVolume * -1){
                     if(item.MT5Volume===(item.PXMVolume+item.PXMOverflow)*-1){
                         tr.style.backgroundColor = "orange";
                     } else {
@@ -478,7 +481,10 @@ document.addEventListener('DOMContentLoaded', function () {
             BBookCrossCheckArray2.forEach(item => {
                 if(item.RiskAccount === window.MT5ConfigObject.RiskAccounts2[0]) {
                     const tr = document.createElement('tr');
-                    if(item.MT5Volume!=item.PXMVolume * -1){
+                    if (MT5ConfigObject?.ExcludedSymbols.includes(item?.Symbol)) {
+                      tr.style.backgroundColor = "lightgrey";
+                    }
+                    else if(item.MT5Volume!=item.PXMVolume * -1){
                         if(item.MT5Volume===(item.PXMVolume+item.PXMOverflow)*-1){
                             tr.style.backgroundColor = "orange";
                         } else {
@@ -620,4 +626,5 @@ document.addEventListener('DOMContentLoaded', function () {
         createBBookCrossCheckTable_2();
     });
 });
+
 
