@@ -356,7 +356,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const tbody = document.createElement('tbody');
         fullBookCrossCheckArray.forEach(item => {
             const tr = document.createElement('tr');
-            if(item.MT5Volume!=item.PXMVolume){tr.style.backgroundColor = "red"}
+            if (MT5ConfigObject?.ExcludedSymbols.includes(item?.Symbol)) {
+              tr.style.backgroundColor = "grey";
+            }
+            else if (item.MT5Volume!=item.PXMVolume){tr.style.backgroundColor = "red"}
 
             const td = document.createElement('td');
             td.textContent = MT5ConfigObject.FullBook || ''; // Add cell value or empty if not available
@@ -617,3 +620,4 @@ document.addEventListener('DOMContentLoaded', function () {
         createBBookCrossCheckTable_2();
     });
 });
+
