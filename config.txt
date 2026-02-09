@@ -112,6 +112,8 @@
     { "Symbol": "XRPUSD", "ContractSize": 100 },
     { "Symbol": "XPDUSD", "ContractSize": 100 },
     { "Symbol": "XPTUSD", "ContractSize": 100 }
-  ]
+  ],
+  "ExcludedSymbols" : ["DIS","APEX","MODON","ESHRAQ","MULTIPLY","PHX","UPP","DEYAAR","EMAAR","ALDAR","EMIRATESNBD","ADCB","ADIB","ADNOCGAS","AIRARABIA","ALANSARI","ALPHADHABI","LULU","ARMX","SALIK","AJBNK","DISB","DU","SALAMA","TAQA","DANA","ADNIC","ADAVIATION","DEWA","ADNOCDRILL"]
 }
+
 
