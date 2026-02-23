@@ -92,8 +92,8 @@
     { "Symbol": "USBKT", "ContractSize": 1 },
     { "Symbol": "COFFEE", "ContractSize": 1 },
     { "Symbol": "COPPER", "ContractSize": 1 },
-    { "Symbol": "UKOIL", "ContractSize": 10 },
-    { "Symbol": "USOIL", "ContractSize": 10 },
+    { "Symbol": "UKOIL", "ContractSize": 1000 },
+    { "Symbol": "USOIL", "ContractSize": 1000 },
     { "Symbol": "GER40*", "ContractSize": 1 },
     { "Symbol": "US30*", "ContractSize": 1 },
     { "Symbol": "US500*", "ContractSize": 1 },
@@ -115,6 +115,7 @@
   ],
   "ExcludedSymbols" : ["DSI","APEX","MODON","ESHRAQ","MULTIPLY","PHX","UPP","DEYAAR","EMAAR","ALDAR","EMIRATESNBD","ADCB","ADIB","ADNOCGAS","AIRARABIA","ALANSARI","ALPHADHABI","LULU","ARMX","SALIK","AJBNK","DISB","DU","SALAMA","TAQA","DANA","ADNIC","ADAVIATION","DEWA","ADNOCDRILL","BTCUSD","NAS100","US30","US500","CAC40","GER40","UK100","US2000","USDAED","XRPUSD"]
 }
+
 
 
 
