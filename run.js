@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
             window.aggregatedArray.forEach(position => {
                 window.ConnectorRouteArray.forEach(route => {
                     if(route.sym === position.Symbol){
-                        position.BBOOK = "NO"
                         position.BbookRatio = window.MT5ConfigObject.BbookRatio[route.target];
                         position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target];
                     };
@@ -75,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
             window.aggregatedArray.forEach(position => {
                 window.ConnectorRouteArray.forEach(route => {
                     if(route.subid3 === position.Login){
-                        position.BBOOK = "NO";
                         if(!position.RiskAccount){position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target];}
                         if(!position.BbookRatio){position.BbookRatio = window.MT5ConfigObject.BbookRatio[route.target];}
                     }
@@ -83,9 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
             })
 
             window.aggregatedArray.forEach(position => {
-                if (!position.BBOOK) {
-                    position.BBOOK = "YES";
-                }
                 if (!position.RiskAccount) {
                     position.RiskAccount = "DAMAN_DEALER";
                 }
@@ -626,5 +621,6 @@ document.addEventListener('DOMContentLoaded', function () {
         createBBookCrossCheckTable_2();
     });
 });
+
 
 
