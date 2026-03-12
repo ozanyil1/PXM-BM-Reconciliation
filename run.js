@@ -81,6 +81,15 @@ document.addEventListener('DOMContentLoaded', function () {
             })
 
             window.aggregatedArray.forEach(position => {
+                window.ConnectorRouteArray.forEach(route => {
+                    if(route.subid2 === position.Group.replace(/\\\\/g, "\\");){
+                        if(!position.RiskAccount){position.RiskAccount = window.MT5ConfigObject.RiskAccounts[route.target];}
+                        if(!position.BbookRatio){position.BbookRatio = window.MT5ConfigObject.BbookRatio[route.target];}
+                    }
+                });
+            })
+
+            window.aggregatedArray.forEach(position => {
                 if (!position.RiskAccount) {
                     position.RiskAccount = "DAMAN_DEALER";
                 }
@@ -621,6 +630,7 @@ document.addEventListener('DOMContentLoaded', function () {
         createBBookCrossCheckTable_2();
     });
 });
+
 
 
 
