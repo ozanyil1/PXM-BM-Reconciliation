@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('filePath1').value = filePath1;
 
         // Required headers for ConnectorRoute Rules
-        const requiredHeaders = ['connector', 'sym', 'subid1', 'subid3','target'];
+        const requiredHeaders = ['connector', 'sym', 'subid1', 'subid2','subid3','target'];
 
         // Parse the CSV file and create an array of objects with only required headers
         parseCSVToArray(file, requiredHeaders, function(dataArray) {
@@ -342,3 +342,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
