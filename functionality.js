@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Create a table in the same container as the previous tables
             createTable(window.MT5TradingAccountsArray, 'table-container'); // Reuse the existing container
-        }, ';', 1);
+        }, ';', 0);
         // Check if all required files are selected
         checkFilesSelected();
     });
