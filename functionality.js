@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Create a table in the same container as the previous tables
             createTable(aggregatedArray, 'table-container'); // Reuse the existing container
-        }, ';', 1, false); // Pass semicolon as the delimiter, start parsing from the second row, and do not apply transformations
+        }, ';', 0, false); // Pass semicolon as the delimiter, start parsing from the second row, and do not apply transformations
         // Check if all required files are selected
         checkFilesSelected();
     });
