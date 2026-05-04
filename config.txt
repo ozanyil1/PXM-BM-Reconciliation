@@ -24,7 +24,7 @@
     "DAMAN_MKTS-1_Xcore_L": 1,
     "DAMAN_MKTS-1_Xcore_MM": 1
   },
-  "ActiveConnector": "DAMAN_MARKETS-1_Xcore",
+  "ActiveConnector": "DAMAN_MKTS-1_Xcore",
   "Symbols": [
     { "Symbol": "AUDUSD", "ContractSize": 100000 },
     { "Symbol": "EURUSD", "ContractSize": 100000 },
