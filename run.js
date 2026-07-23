@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (account) {
                 position.Group = account.Group;
                 position.Name = account.Name;
-                position.LastName = account.["Last name"]
+                position.LastName = account["Last name"]
             }
         });
     }
