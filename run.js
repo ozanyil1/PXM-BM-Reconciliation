@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (account) {
                 position.Group = account.Group;
                 position.Name = account.Name;
+                position.LastName = account."Last name"
             }
         });
     }
@@ -56,8 +57,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const excludedLogins = ['TEST','test','Test','Coverage','COVERAGE','coverage']; // These can be made case-insensitive later
     
         window.aggregatedArray = window.aggregatedArray.filter(position => {
-            return !excludedLogins.some(excluded => position.Name.toLowerCase().includes(excluded.toLowerCase()));
-        });
+            return !excludedLogins.some(excluded =>
+                position.Name.toLowerCase().includes(excluded.toLowerCase()) ||
+                position.LastName.toLowerCase().includes(excluded.toLowerCase())
+        );
+    });
     }
 
     function routeAggregatedArray() {
